@@ -1,0 +1,888 @@
+{
+  "schema_version": 1,
+  "scope": "Deterministic rerun from the same frozen scientific inputs. This validates saved-result reanalysis, not new training, a new experiment, or external scientific validation.",
+  "reference_source": "reproducibility/github_admet_identifiability_20261023/package/ExpansionRx_reproducibility",
+  "path_base": "Reproduction working-directory root; all file paths below are relative to that root.",
+  "json_comparison": {
+    "absolute_tolerance": 1E-12,
+    "relative_tolerance": 0.0,
+    "comparison": "Recursively compare keys, arrays and values; require exact equality for strings, booleans, nulls and integers; use the absolute tolerance for floating-point numbers.",
+    "exclusion_rule": "Remove each file entry excluded_paths from the generated JSON before comparison. Paths use dot-separated object keys. Reference content already omits these fields. Only generated_utc and producer-script identity fields are excluded; scientific input hashes are retained."
+  },
+  "output_counts": {
+    "total": 27,
+    "csv": 22,
+    "json": 5,
+    "v5": 12,
+    "v6": 10,
+    "reporting": 5
+  },
+  "files": [
+    {
+      "path": "artifacts/expansionrx_v5_identifiability_lead_v1/identification_distance_primary45.csv",
+      "kind": "csv",
+      "sha256": "edebbc8a9cdb316b1bae3fd8c0c5f95f423183b0636bfce39687734ba2f3e388"
+    },
+    {
+      "path": "artifacts/expansionrx_v5_identifiability_lead_v1/profile_identifiability.csv",
+      "kind": "csv",
+      "sha256": "71eede62625fb75fd0b8141283e1f8e5e16f538cf543f95ecec86fa68566b759"
+    },
+    {
+      "path": "artifacts/expansionrx_v5_identifiability_lead_v1/profile_outcome_counts.csv",
+      "kind": "csv",
+      "sha256": "cea78646305a5eca4364dcfb1053bea1e0f107d222ab38039931951a1ca8b3e1"
+    },
+    {
+      "path": "artifacts/expansionrx_v5_identifiability_lead_v1/profile_pair_intervals.csv",
+      "kind": "csv",
+      "sha256": "e99752d17970e280eac5b90904a977128c05f87a319e44bd9d4160fae651620f"
+    },
+    {
+      "path": "artifacts/expansionrx_v5_identifiability_lead_v1/reproduction_gate.json",
+      "kind": "json",
+      "excluded_paths": [],
+      "content": {
+        "n": 2282,
+        "complete_exact": 776,
+        "decidable": 1657,
+        "known_successes": 283,
+        "known_failures": 1374,
+        "unknown": 625,
+        "successes_with_inequality": 153,
+        "successes_complete_exact": 130,
+        "endpoint_coverage": {
+          "LogD": {
+            "exact": 2270,
+            "inequality": 2,
+            "missing": 10,
+            "semantic_invalid": 0,
+            "total": 2282
+          },
+          "KSOL": {
+            "exact": 2170,
+            "inequality": 11,
+            "missing": 101,
+            "semantic_invalid": 0,
+            "total": 2282
+          },
+          "HLM CLint": {
+            "exact": 782,
+            "inequality": 228,
+            "missing": 1272,
+            "semantic_invalid": 0,
+            "total": 2282
+          }
+        },
+        "decidable_full": 1657,
+        "decidable_without_inequalities": 1496,
+        "decidable_dependent_on_inequalities": 161,
+        "ineq_dependent_successes": 153,
+        "ineq_dependent_failures": 8,
+        "nonexact_decidable_not_ineq": 720,
+        "selected_unknown_rate_min": 0.29694323144104806,
+        "selected_unknown_rate_max": 0.4608695652173913,
+        "selected_unknown_rate_mean": 0.3892512772022157,
+        "pool_unknown_rate": 0.2738825591586328,
+        "primary_pairs_identified": 0,
+        "primary_pairs_touching_zero": 0,
+        "primary_width_min_pp": 5.240175,
+        "primary_width_median_pp": 49.344978,
+        "primary_width_max_pp": 62.008734
+      }
+    },
+    {
+      "path": "artifacts/expansionrx_v5_identifiability_lead_v1/reproduction_primary_pairs.csv",
+      "kind": "csv",
+      "sha256": "fe816a030539520627d3fd84ec60f6dd2ff6e68a2e682b546ba88b6cefa2ed8f"
+    },
+    {
+      "path": "artifacts/expansionrx_v5_identifiability_lead_v1/selected_unknown_rates.csv",
+      "kind": "csv",
+      "sha256": "f1c8d0dae317741a6b9e628b4181aa70f9be666401515d495b856f26624d9bde"
+    },
+    {
+      "path": "artifacts/expansionrx_v5_identifiability_lead_v1/summary.json",
+      "kind": "json",
+      "excluded_paths": [
+        "generated_utc",
+        "input_sha256.script_sha256"
+      ],
+      "content": {
+        "n_later": 2282,
+        "input_sha256": {
+          "policy_scores": "f1bcf4e98612593ff70972a8e44e3f3357e4e878e955b9136d04edb8839d2f1a",
+          "rankings_and_selection": "e19e4c5101b21b42582685987088457d3301fa6e99a7a93d5d24f8e85b1e6d77",
+          "raw_strings": "f674ec74cca1146bc386f832a32d4b8d921d3c312f92cb436cc005901c724a3c"
+        },
+        "profile_map": {
+          "identified_matrix": {
+            "LogD": {
+              "0.05": 43,
+              "0.1": 42,
+              "0.2": 41
+            },
+            "KSOL": {
+              "0.05": 38,
+              "0.1": 38,
+              "0.2": 40
+            },
+            "HLM": {
+              "0.05": 0,
+              "0.1": 0,
+              "0.2": 0
+            },
+            "LogD+KSOL": {
+              "0.05": 45,
+              "0.1": 44,
+              "0.2": 42
+            },
+            "LogD+HLM": {
+              "0.05": 0,
+              "0.1": 0,
+              "0.2": 0
+            },
+            "KSOL+HLM": {
+              "0.05": 0,
+              "0.1": 0,
+              "0.2": 0
+            },
+            "LogD+KSOL+HLM": {
+              "0.05": 0,
+              "0.1": 0,
+              "0.2": 0
+            }
+          },
+          "outcome_counts": [
+            {
+              "profile": "LogD",
+              "n_endpoints": 1,
+              "decidable": 2272,
+              "known_successes": 1571,
+              "known_failures": 701,
+              "unknown": 10
+            },
+            {
+              "profile": "KSOL",
+              "n_endpoints": 1,
+              "decidable": 2181,
+              "known_successes": 1583,
+              "known_failures": 598,
+              "unknown": 101
+            },
+            {
+              "profile": "HLM",
+              "n_endpoints": 1,
+              "decidable": 1010,
+              "known_successes": 398,
+              "known_failures": 612,
+              "unknown": 1272
+            },
+            {
+              "profile": "LogD+KSOL",
+              "n_endpoints": 2,
+              "decidable": 2221,
+              "known_successes": 1210,
+              "known_failures": 1011,
+              "unknown": 61
+            },
+            {
+              "profile": "LogD+HLM",
+              "n_endpoints": 2,
+              "decidable": 1462,
+              "known_successes": 308,
+              "known_failures": 1154,
+              "unknown": 820
+            },
+            {
+              "profile": "KSOL+HLM",
+              "n_endpoints": 2,
+              "decidable": 1394,
+              "known_successes": 357,
+              "known_failures": 1037,
+              "unknown": 888
+            },
+            {
+              "profile": "LogD+KSOL+HLM",
+              "n_endpoints": 3,
+              "decidable": 1657,
+              "known_successes": 283,
+              "known_failures": 1374,
+              "unknown": 625
+            }
+          ]
+        },
+        "threshold_sensitivity": {
+          "grid": [
+            [
+              1,
+              "primary",
+              [
+                1,
+                3
+              ],
+              50,
+              10
+            ],
+            [
+              2,
+              "logd",
+              [
+                0,
+                2
+              ],
+              50,
+              10
+            ],
+            [
+              3,
+              "logd",
+              [
+                2,
+                4
+              ],
+              50,
+              10
+            ],
+            [
+              4,
+              "logd",
+              [
+                1,
+                4
+              ],
+              50,
+              10
+            ],
+            [
+              5,
+              "ksol",
+              [
+                1,
+                3
+              ],
+              30,
+              10
+            ],
+            [
+              6,
+              "ksol",
+              [
+                1,
+                3
+              ],
+              100,
+              10
+            ],
+            [
+              7,
+              "hlm",
+              [
+                1,
+                3
+              ],
+              50,
+              5
+            ],
+            [
+              8,
+              "hlm",
+              [
+                1,
+                3
+              ],
+              50,
+              20
+            ],
+            [
+              9,
+              "loose_all",
+              [
+                0,
+                4
+              ],
+              30,
+              20
+            ],
+            [
+              10,
+              "strict_all",
+              [
+                1,
+                2
+              ],
+              100,
+              5
+            ]
+          ],
+          "rows": [
+            {
+              "scenario": 1,
+              "axis": "primary",
+              "logd_lo": 1,
+              "logd_hi": 3,
+              "ksol_min": 50,
+              "hlm_max": 10,
+              "decidable": 1657,
+              "known_successes": 283,
+              "known_failures": 1374,
+              "unknown": 625,
+              "identified_5pct": 0,
+              "identified_10pct": 0,
+              "identified_20pct": 0
+            },
+            {
+              "scenario": 2,
+              "axis": "logd",
+              "logd_lo": 0,
+              "logd_hi": 2,
+              "ksol_min": 50,
+              "hlm_max": 10,
+              "decidable": 1790,
+              "known_successes": 263,
+              "known_failures": 1527,
+              "unknown": 492,
+              "identified_5pct": 3,
+              "identified_10pct": 2,
+              "identified_20pct": 3
+            },
+            {
+              "scenario": 3,
+              "axis": "logd",
+              "logd_lo": 2,
+              "logd_hi": 4,
+              "ksol_min": 50,
+              "hlm_max": 10,
+              "decidable": 1900,
+              "known_successes": 89,
+              "known_failures": 1811,
+              "unknown": 382,
+              "identified_5pct": 2,
+              "identified_10pct": 1,
+              "identified_20pct": 1
+            },
+            {
+              "scenario": 4,
+              "axis": "logd",
+              "logd_lo": 1,
+              "logd_hi": 4,
+              "ksol_min": 50,
+              "hlm_max": 10,
+              "decidable": 1590,
+              "known_successes": 287,
+              "known_failures": 1303,
+              "unknown": 692,
+              "identified_5pct": 0,
+              "identified_10pct": 0,
+              "identified_20pct": 0
+            },
+            {
+              "scenario": 5,
+              "axis": "ksol",
+              "logd_lo": 1,
+              "logd_hi": 3,
+              "ksol_min": 30,
+              "hlm_max": 10,
+              "decidable": 1624,
+              "known_successes": 290,
+              "known_failures": 1334,
+              "unknown": 658,
+              "identified_5pct": 0,
+              "identified_10pct": 0,
+              "identified_20pct": 0
+            },
+            {
+              "scenario": 6,
+              "axis": "ksol",
+              "logd_lo": 1,
+              "logd_hi": 3,
+              "ksol_min": 100,
+              "hlm_max": 10,
+              "decidable": 1711,
+              "known_successes": 272,
+              "known_failures": 1439,
+              "unknown": 571,
+              "identified_5pct": 0,
+              "identified_10pct": 0,
+              "identified_20pct": 0
+            },
+            {
+              "scenario": 7,
+              "axis": "hlm",
+              "logd_lo": 1,
+              "logd_hi": 3,
+              "ksol_min": 50,
+              "hlm_max": 5,
+              "decidable": 1658,
+              "known_successes": 184,
+              "known_failures": 1474,
+              "unknown": 624,
+              "identified_5pct": 1,
+              "identified_10pct": 0,
+              "identified_20pct": 0
+            },
+            {
+              "scenario": 8,
+              "axis": "hlm",
+              "logd_lo": 1,
+              "logd_hi": 3,
+              "ksol_min": 50,
+              "hlm_max": 20,
+              "decidable": 1654,
+              "known_successes": 415,
+              "known_failures": 1239,
+              "unknown": 628,
+              "identified_5pct": 0,
+              "identified_10pct": 0,
+              "identified_20pct": 0
+            },
+            {
+              "scenario": 9,
+              "axis": "loose_all",
+              "logd_lo": 0,
+              "logd_hi": 4,
+              "ksol_min": 30,
+              "hlm_max": 20,
+              "decidable": 1398,
+              "known_successes": 501,
+              "known_failures": 897,
+              "unknown": 884,
+              "identified_5pct": 0,
+              "identified_10pct": 0,
+              "identified_20pct": 0
+            },
+            {
+              "scenario": 10,
+              "axis": "strict_all",
+              "logd_lo": 1,
+              "logd_hi": 2,
+              "ksol_min": 100,
+              "hlm_max": 5,
+              "decidable": 1952,
+              "known_successes": 144,
+              "known_failures": 1808,
+              "unknown": 330,
+              "identified_5pct": 3,
+              "identified_10pct": 2,
+              "identified_20pct": 1
+            }
+          ]
+        },
+        "identification_distance": {
+          "pairs": 45,
+          "pairs_with_nonzero_d": 44,
+          "pairs_attainable_observed_favouring": 44,
+          "m_min_median": 34.0,
+          "m_min_min": 2,
+          "m_min_max": 70,
+          "exclusive_unknown_total": 4306,
+          "exclusive_unknown_HLM_only_total": 4180
+        },
+        "outputs": [
+          "identification_distance_primary45.csv",
+          "profile_identifiability.csv",
+          "profile_outcome_counts.csv",
+          "profile_pair_intervals.csv",
+          "reproduction_gate.json",
+          "reproduction_primary_pairs.csv",
+          "selected_unknown_rates.csv",
+          "table_decidability_decomposition.csv",
+          "table_endpoint_coverage.csv",
+          "threshold_pair_intervals.csv",
+          "threshold_sensitivity.csv"
+        ]
+      }
+    },
+    {
+      "path": "artifacts/expansionrx_v5_identifiability_lead_v1/table_decidability_decomposition.csv",
+      "kind": "csv",
+      "sha256": "cddde0f7558f8632f2829dbc95eba57aa39f740db1f84cd19e9734cd159ef3f8"
+    },
+    {
+      "path": "artifacts/expansionrx_v5_identifiability_lead_v1/table_endpoint_coverage.csv",
+      "kind": "csv",
+      "sha256": "e40e1b7c3056f2179f3831f01947680f7355dfe3758450370d400e05452f8763"
+    },
+    {
+      "path": "artifacts/expansionrx_v5_identifiability_lead_v1/threshold_pair_intervals.csv",
+      "kind": "csv",
+      "sha256": "5e7144ed4675b0c7f868553e19c807c02c499d690352bbd9fc38aeb20a03fa1d"
+    },
+    {
+      "path": "artifacts/expansionrx_v5_identifiability_lead_v1/threshold_sensitivity.csv",
+      "kind": "csv",
+      "sha256": "f7c3ded3b9eacd08073c2510858abfed8774e3de364184aeb1bfbaa331e6d5dc"
+    },
+    {
+      "path": "artifacts/expansionrx_v6_strengthening_v1/coverage_requirement_primary45.csv",
+      "kind": "csv",
+      "sha256": "468f29408379d7c01b3da691da79274892e6eabc8e15a2ed8325db926a9f0cbc"
+    },
+    {
+      "path": "artifacts/expansionrx_v6_strengthening_v1/measurement_frontier.csv",
+      "kind": "csv",
+      "sha256": "c9079a64b442632b7c55a47158d3678232169074b8c76c7aeb6bd288035f09ba"
+    },
+    {
+      "path": "artifacts/expansionrx_v6_strengthening_v1/missingness_structure_summary.csv",
+      "kind": "csv",
+      "sha256": "6e10d630b4ba5eda08df9b39f091aad1914e9e4c416718f787c13398503b2f8b"
+    },
+    {
+      "path": "artifacts/expansionrx_v6_strengthening_v1/naive_report_magnitudes.csv",
+      "kind": "csv",
+      "sha256": "c5cff655509b34b90bcfbbd3cf57c827ca1210da01deb6357b42399c0ec3594f"
+    },
+    {
+      "path": "artifacts/expansionrx_v6_strengthening_v1/permutation_refinement_draws.csv",
+      "kind": "csv",
+      "sha256": "07dcc87a1e3b292677b0047603c9e4bf336ecc586624acba165ac9f4926c8d1c"
+    },
+    {
+      "path": "artifacts/expansionrx_v6_strengthening_v1/permutation_refinement.json",
+      "kind": "json",
+      "excluded_paths": [
+        "script_sha256"
+      ],
+      "content": {
+        "statistic": "share of missing clearance records in Murcko scaffold groups with >=5 records and within-group missing rate >= 0.8",
+        "null_hypothesis": "clearance missingness is exchangeable across the 2,282 later compounds given the observed scaffold assignment",
+        "alternative": "missingness is more concentrated in high-missing scaffold groups than exchangeability predicts (one-sided)",
+        "draws": 20000,
+        "seed": 42,
+        "rng": "numpy.random.RandomState",
+        "n_compounds_with_scaffold": 2282,
+        "n_groups": 875,
+        "groups_size_at_least_5": 92,
+        "n_missing_records": 1272,
+        "observed_statistic": 0.18238993710691823,
+        "permutation_mean": 0.046116037735849054,
+        "permutation_sd": 0.013708212976374952,
+        "permutation_p95": 0.0699685534591195,
+        "permutation_p99": 0.08176100628930817,
+        "permutation_p999": 0.09591273584905963,
+        "permutation_max": 0.11871069182389937,
+        "one_sided_empirical_p": 4.999750012499375E-05,
+        "p_value_upper_bound": 4.999750012499375E-05,
+        "inputs_sha256": {
+          "structure_membership": "f187e4ac9914c1f28c07ac208a519c19cd56771dad05fdc0ca6494010264cfbd",
+          "later_raw": "f674ec74cca1146bc386f832a32d4b8d921d3c312f92cb436cc005901c724a3c",
+          "later_scores": "f1bcf4e98612593ff70972a8e44e3f3357e4e878e955b9136d04edb8839d2f1a"
+        }
+      }
+    },
+    {
+      "path": "artifacts/expansionrx_v6_strengthening_v1/profile_map_development.csv",
+      "kind": "csv",
+      "sha256": "51cfa3d56eca8e133f4c339e3e52cfdf53cee2ec25d7f5569511a1e94bec2658"
+    },
+    {
+      "path": "artifacts/expansionrx_v6_strengthening_v1/profile_map_later.csv",
+      "kind": "csv",
+      "sha256": "ececf15547b9f92ef2737054288facff1717afb15016e434221af9e22c6d13a0"
+    },
+    {
+      "path": "artifacts/expansionrx_v6_strengthening_v1/sharpness_witnesses.csv",
+      "kind": "csv",
+      "sha256": "6d2095c3ed194ab082ddf214a4a8ec7dba12ceada3d2450b684c07b6c0b890cf"
+    },
+    {
+      "path": "artifacts/expansionrx_v6_strengthening_v1/summary.json",
+      "kind": "json",
+      "excluded_paths": [
+        "generated_utc",
+        "inputs_sha256.script"
+      ],
+      "content": {
+        "inputs_sha256": {
+          "later_raw": "f674ec74cca1146bc386f832a32d4b8d921d3c312f92cb436cc005901c724a3c",
+          "later_scores": "f1bcf4e98612593ff70972a8e44e3f3357e4e878e955b9136d04edb8839d2f1a",
+          "dev_membership": "1680358c96fd5132465cf2afc3cef28acd3c98b92e834c38fd859add659d6b8e",
+          "train_adjudicated": "3b443fcf1265703f4273baa269715fa3b0f958fcfde03a814dd51e0b2f1948e7",
+          "structure_membership": "f187e4ac9914c1f28c07ac208a519c19cd56771dad05fdc0ca6494010264cfbd"
+        },
+        "development": {
+          "n": 1272,
+          "budgets": {
+            "0.05": 64,
+            "0.1": 128,
+            "0.2": 255
+          },
+          "decidable": 1139,
+          "known_successes": 197,
+          "unknown": 133,
+          "hlm_missing": 288,
+          "later_hlm_missing": 1272
+        },
+        "profile_map": {
+          "later": {
+            "LogD": {
+              "identified_5pct": 43,
+              "identified_10pct": 42,
+              "identified_20pct": 41
+            },
+            "KSOL": {
+              "identified_5pct": 38,
+              "identified_10pct": 38,
+              "identified_20pct": 40
+            },
+            "HLM CLint": {
+              "identified_5pct": 0,
+              "identified_10pct": 0,
+              "identified_20pct": 0
+            },
+            "LogD + KSOL": {
+              "identified_5pct": 45,
+              "identified_10pct": 44,
+              "identified_20pct": 42
+            },
+            "LogD + HLM CLint": {
+              "identified_5pct": 0,
+              "identified_10pct": 0,
+              "identified_20pct": 0
+            },
+            "KSOL + HLM CLint": {
+              "identified_5pct": 0,
+              "identified_10pct": 0,
+              "identified_20pct": 0
+            },
+            "All three": {
+              "identified_5pct": 0,
+              "identified_10pct": 0,
+              "identified_20pct": 0
+            }
+          },
+          "development": {
+            "LogD": {
+              "identified_5pct": 41,
+              "identified_10pct": 43,
+              "identified_20pct": 43
+            },
+            "KSOL": {
+              "identified_5pct": 36,
+              "identified_10pct": 39,
+              "identified_20pct": 38
+            },
+            "HLM CLint": {
+              "identified_5pct": 0,
+              "identified_10pct": 0,
+              "identified_20pct": 6
+            },
+            "LogD + KSOL": {
+              "identified_5pct": 40,
+              "identified_10pct": 42,
+              "identified_20pct": 43
+            },
+            "LogD + HLM CLint": {
+              "identified_5pct": 4,
+              "identified_10pct": 2,
+              "identified_20pct": 3
+            },
+            "KSOL + HLM CLint": {
+              "identified_5pct": 1,
+              "identified_10pct": 0,
+              "identified_20pct": 4
+            },
+            "All three": {
+              "identified_5pct": 4,
+              "identified_10pct": 3,
+              "identified_20pct": 15
+            }
+          }
+        },
+        "coverage_requirement": {
+          "pairs": 45,
+          "attainable": 44,
+          "required_known_fraction_median": 0.9186570691096811,
+          "required_known_fraction_min": 0.7560975609756098,
+          "required_known_fraction_max": 1.0,
+          "current_known_fraction_median": 0.6181985294117647,
+          "pairs_current_below_required": 44,
+          "required_resolved_median": 34.0
+        },
+        "sharpness": {
+          "witness_rows": 270,
+          "max_abs_deviation": 0.0
+        },
+        "measurement_frontier": {
+          "pairs_with_requirement": 44,
+          "universe_unknown": 625,
+          "measurements_for_m_pairs": {
+            "1": 2,
+            "2": 26,
+            "5": 38,
+            "10": 54,
+            "20": 78,
+            "30": 110,
+            "40": 179,
+            "44": 217
+          },
+          "measurements_for_all": 217,
+          "greedy_note": "greedy plan; a plan of this size is achievable in the best case, so the true minimum is not larger."
+        },
+        "missingness_structure": {
+          "scaffold_groups_ge5": 92,
+          "groups_all_missing": 14,
+          "groups_none_missing": 9,
+          "share_missing_in_groups_rate_ge_0.8": 0.18238993710691823,
+          "permutation_mean": 0.04627358490566038,
+          "permutation_p95": 0.06843553459119493,
+          "permutation_z": 9.733955436814314,
+          "pool_mean_loo_scaffold_missing_rate": 0.49127640036730946,
+          "selected_mean_loo_scaffold_missing_rate": 0.4517265118918513
+        },
+        "outputs": [
+          "coverage_requirement_primary45.csv",
+          "measurement_frontier.csv",
+          "missingness_structure_summary.csv",
+          "naive_report_magnitudes.csv",
+          "profile_map_development.csv",
+          "profile_map_later.csv",
+          "sharpness_witnesses.csv"
+        ]
+      }
+    },
+    {
+      "path": "reporting/analysis/validation.json",
+      "kind": "json",
+      "excluded_paths": [],
+      "content": {
+        "scope": "Post-review exploratory decomposition and independent saved-result recomputation; no retraining or changed outcomes.",
+        "n": 2282,
+        "complete_exact": 776,
+        "joint_decidable": 1657,
+        "known_success": 283,
+        "known_failure": 1374,
+        "joint_unknown": 625,
+        "successes_with_valid_inequalities": 153,
+        "joint_unknown_involving_HLM": 623,
+        "joint_unknown_only_HLM": 567,
+        "endpoint_states_matched": 6846,
+        "saved_selection_sets_matched": 30,
+        "pair_intervals_matched": 135,
+        "all_135_strictly_cross_zero": true,
+        "primary": {
+          "k": 229,
+          "count": 45,
+          "width_pp_min_median_max": [
+            5.240174672489083,
+            49.34497816593886,
+            62.00873362445415
+          ],
+          "overlap_min_median_max": [
+            50,
+            77,
+            213
+          ],
+          "exclusive_unknown_min_median_max": [
+            12,
+            113,
+            142
+          ]
+        },
+        "representative_selection": "Sort 45 primary pairs by exclusive unknown count, then policy_a and policy_b lexicographically; take ranks 1, 23, 45. Orientation remains saved policy_a minus policy_b.",
+        "representative_pairs": [
+          {
+            "selection": "Minimum width",
+            "width_rank": 1,
+            "fraction": 0.1,
+            "k": 229,
+            "policy_a": "dmpnn_paired",
+            "policy_b": "dmpnn_independent",
+            "overlap": 213,
+            "shared_unknown": 88,
+            "exclusive_per_side": 16,
+            "known_success_a_only": 0,
+            "known_success_b_only": 2,
+            "known_success_difference": -2,
+            "unknown_a_only": 7,
+            "unknown_b_only": 5,
+            "exclusive_unknown_total": 12,
+            "lower_numerator": -7,
+            "upper_numerator": 5,
+            "lower_fraction": "-7/229",
+            "upper_fraction": "5/229",
+            "lower_pp": -3.056768558951965,
+            "upper_pp": 2.1834061135371177,
+            "width_pp": 5.240174672489083
+          },
+          {
+            "selection": "Median-ranked width",
+            "width_rank": 23,
+            "fraction": 0.1,
+            "k": 229,
+            "policy_a": "dmpnn_independent",
+            "policy_b": "direct_joint_classifier",
+            "overlap": 62,
+            "shared_unknown": 24,
+            "exclusive_per_side": 167,
+            "known_success_a_only": 50,
+            "known_success_b_only": 29,
+            "known_success_difference": 21,
+            "unknown_a_only": 69,
+            "unknown_b_only": 44,
+            "exclusive_unknown_total": 113,
+            "lower_numerator": -23,
+            "upper_numerator": 90,
+            "lower_fraction": "-23/229",
+            "upper_fraction": "90/229",
+            "lower_pp": -10.043668122270741,
+            "upper_pp": 39.30131004366812,
+            "width_pp": 49.34497816593886
+          },
+          {
+            "selection": "Maximum width",
+            "width_rank": 45,
+            "fraction": 0.1,
+            "k": 229,
+            "policy_a": "rf_independent",
+            "policy_b": "dmpnn_point_min",
+            "overlap": 52,
+            "shared_unknown": 24,
+            "exclusive_per_side": 177,
+            "known_success_a_only": 36,
+            "known_success_b_only": 54,
+            "known_success_difference": -18,
+            "unknown_a_only": 73,
+            "unknown_b_only": 69,
+            "exclusive_unknown_total": 142,
+            "lower_numerator": -87,
+            "upper_numerator": 55,
+            "lower_fraction": "-87/229",
+            "upper_fraction": "55/229",
+            "lower_pp": -37.99126637554585,
+            "upper_pp": 24.017467248908297,
+            "width_pp": 62.00873362445415
+          }
+        ],
+        "source_sha256": {
+          "artifacts\\expansionrx_later_identification_v1\\scored_outcomes.csv": "72e7c5cac59f6b17dba18fb0bd7e039db03305d4831d5ed6c471bda907cbd27c",
+          "artifacts\\expansionrx_later_identification_v1\\pairwise_identification.csv": "615e7ec6911ac1ceb96c78595ec40e1bdb4a5b262e8f98d1ff9f115708e1dec2",
+          "artifacts\\expansionrx_later_identification_v1\\selection_membership.csv": "b3f804a366d19e5e6f823382f3361504ea769ddd5c20e48633ce68456e0e127b",
+          "data\\expansionrx_openadmet\\expansion_data_raw.csv": "f674ec74cca1146bc386f832a32d4b8d921d3c312f92cb436cc005901c724a3c",
+          "data\\expansionrx_openadmet\\expansion_data_test.csv": "e21c0ef19795317216287e924e00ca3ef9388b7032a7fa4c7f27e2580372c85e"
+        }
+      }
+    },
+    {
+      "path": "reporting/tables/joint_unknown_endpoint_patterns.csv",
+      "kind": "csv",
+      "sha256": "f0823247bd6d727752521e0abf58d454b1fef119bf713fb4df375a5297258775"
+    },
+    {
+      "path": "reporting/tables/paired_decomposition_all_135.csv",
+      "kind": "csv",
+      "sha256": "31e70840979870c9db9830a05b0300b52ddf295a846d6b717772d702fd524643"
+    },
+    {
+      "path": "reporting/tables/paired_decomposition_primary_45.csv",
+      "kind": "csv",
+      "sha256": "5bd700b384cfecf70d18c45712f83759db86b2b69445a70c0b27a7669602ce27"
+    },
+    {
+      "path": "reporting/tables/representative_pairs.csv",
+      "kind": "csv",
+      "sha256": "496ceaa07cf2c8b2f84a0ad76bf83dca428e235813eb7ea712acbecc06c6056c"
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "frozen_inputs": {
+    "url": null,
+    "sha256": "4550909387d19b4d5673f75de9c2ce498e0cad6cceea5446c2663eb27a2901f8",
+    "files": [
+      {
+        "path": "artifacts/expansionrx_later_fixed_scores_v2/policy_scores.csv",
+        "bytes": 604538,
+        "sha256": "f1bcf4e98612593ff70972a8e44e3f3357e4e878e955b9136d04edb8839d2f1a"
+      },
+      {
+        "path": "artifacts/expansionrx_later_fixed_scores_v2/rankings_and_selection.csv",
+        "bytes": 1137939,
+        "sha256": "e19e4c5101b21b42582685987088457d3301fa6e99a7a93d5d24f8e85b1e6d77"
+      },
+      {
+        "path": "artifacts/expansionrx_selection_identification_development_v1/selection_membership.csv",
+        "bytes": 237744,
+        "sha256": "1680358c96fd5132465cf2afc3cef28acd3c98b92e834c38fd859add659d6b8e"
+      },
+      {
+        "path": "artifacts/expansionrx_decision_support_v1/adjudicated_training.csv",
+        "bytes": 813778,
+        "sha256": "3b443fcf1265703f4273baa269715fa3b0f958fcfde03a814dd51e0b2f1948e7"
+      },
+      {
+        "path": "artifacts/expansionrx_train_feasibility/raw_training_subset.csv",
+        "bytes": 466989,
+        "sha256": "1c292e7bd187af1faf30b526179e7cba466739571bdcad538ebb66df1fdd6f67"
+      },
+      {
+        "path": "artifacts/expansionrx_structure_audit/structure_membership.csv",
+        "bytes": 2453754,
+        "sha256": "f187e4ac9914c1f28c07ac208a519c19cd56771dad05fdc0ca6494010264cfbd"
+      },
+      {
+        "path": "artifacts/expansionrx_later_identification_v1/pairwise_identification.csv",
+        "bytes": 20871,
+        "sha256": "615e7ec6911ac1ceb96c78595ec40e1bdb4a5b262e8f98d1ff9f115708e1dec2"
+      },
+      {
+        "path": "artifacts/expansionrx_later_identification_v1/scored_outcomes.csv",
+        "bytes": 662256,
+        "sha256": "72e7c5cac59f6b17dba18fb0bd7e039db03305d4831d5ed6c471bda907cbd27c"
+      },
+      {
+        "path": "artifacts/expansionrx_later_identification_v1/selection_membership.csv",
+        "bytes": 427508,
+        "sha256": "b3f804a366d19e5e6f823382f3361504ea769ddd5c20e48633ce68456e0e127b"
+      },
+      {
+        "path": "artifacts/expansionrx_selection_identification_development_v1/policy_metrics.csv",
+        "bytes": 4174,
+        "sha256": "3807a7a7776f39a6633d1eb6597a330c830b33f43b0959e65f9429932b6feb67"
+      },
+      {
+        "path": "artifacts/expansionrx_selection_identification_development_v1/pairwise_identification.csv",
+        "bytes": 18034,
+        "sha256": "5bcb1dc13b0c35f3bd6fffeeac07d55bf3d4441fbaec7d562869c5cde11b5ea4"
+      },
+      {
+        "path": "artifacts/expansionrx_later_identification_v1/policy_metrics.csv",
+        "bytes": 4622,
+        "sha256": "a39e9f435dd4d47d79c3e3585d80707616e2eceeab00cef7a88f2e8ce1815b67"
+      },
+      {
+        "path": "artifacts/expansionrx_decision_pilot_v1_attempt2/scored_calibration_development.csv",
+        "bytes": 919047,
+        "sha256": "c0cbb6b93eed74f651ed4ce20e4e34b8237f6bf5c93135cfd90ec8d5ebd1ca11"
+      }
+    ]
+  },
+  "source_data": [
+    {
+      "path": "data/expansionrx_openadmet/expansion_data_raw.csv",
+      "url": "https://huggingface.co/datasets/openadmet/openadmet-expansionrx-challenge-data/resolve/6b898ccc43d10d25b230fb09e22a6e30c30022b5/expansion_data_raw.csv",
+      "sha256": "f674ec74cca1146bc386f832a32d4b8d921d3c312f92cb436cc005901c724a3c"
+    },
+    {
+      "path": "data/expansionrx_openadmet/expansion_data_test.csv",
+      "url": "https://huggingface.co/datasets/openadmet/openadmet-expansionrx-challenge-data/resolve/6b898ccc43d10d25b230fb09e22a6e30c30022b5/expansion_data_test.csv",
+      "sha256": "e21c0ef19795317216287e924e00ca3ef9388b7032a7fa4c7f27e2580372c85e"
+    }
+  ]
+}
