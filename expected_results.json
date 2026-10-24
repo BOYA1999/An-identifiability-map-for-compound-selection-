@@ -1,7 +1,6 @@
 {
   "schema_version": 1,
-  "scope": "Deterministic rerun from the same frozen scientific inputs. This validates saved-result reanalysis, not new training, a new experiment, or external scientific validation.",
-  "reference_source": "reproducibility/github_admet_identifiability_20261023/package/ExpansionRx_reproducibility",
+  "scope": "Reference outputs for analysis of the supplied scores, selections and outcome records.",
   "path_base": "Reproduction working-directory root; all file paths below are relative to that root.",
   "json_comparison": {
     "absolute_tolerance": 1E-12,
@@ -747,7 +746,7 @@
       "kind": "json",
       "excluded_paths": [],
       "content": {
-        "scope": "Post-review exploratory decomposition and independent saved-result recomputation; no retraining or changed outcomes.",
+        "scope": "Paired comparisons recomputed from the supplied scores, selections and outcome records.",
         "n": 2282,
         "complete_exact": 776,
         "joint_decidable": 1657,

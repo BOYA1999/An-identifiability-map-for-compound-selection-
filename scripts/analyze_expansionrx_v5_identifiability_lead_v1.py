@@ -1,10 +1,7 @@
-"""v5 identifiability analyses (lead independent implementation).
-
-Reuses ONLY frozen saved policy scores/selections and the raw released endpoint strings.
-No retraining, no new inference, no threshold/model/budget change for the primary analysis.
+"""Identifiability analysis using saved scores, selections and reported measurements.
 
 Analyses:
-  1. Reproduction gate against the v4 headline numbers.
+  1. Check the summary results.
   2. Endpoint-profile identifiability map (7 non-empty subsets of LogD/KSOL/HLM x 3 budgets).
   3. Pre-specified threshold sensitivity grid (10 distinct scenarios).
   4. Identification distance for the 45 primary-budget pairs.
@@ -36,7 +33,7 @@ NUM_RE = re.compile(r'\s*(<=|>=|<|>|=)?\s*([+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+
 
 
 def property_state(value, endpoint, logd_lo, logd_hi, ksol_min, hlm_max):
-    """Frozen v4 semantics, parametrised. -1 unknown, 0 fail, 1 pass."""
+    """Classify an endpoint measurement: -1 unknown, 0 fail, 1 pass."""
     if value is None or (isinstance(value, float) and math.isnan(value)) or not str(value).strip():
         return -1
     m = NUM_RE.fullmatch(str(value))

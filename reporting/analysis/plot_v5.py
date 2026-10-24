@@ -202,6 +202,6 @@ for stem in ['figure_2_identifiability_map', 'figure_4_evidence_gap']:
     record = catalog[stem]
     record['script'] = 'analysis/plot_v5.py'
     record['interpretation'] = ('Sharp finite-pool identification bounds, not confidence intervals. '
-                                'The map and exposure panels are post-review exploratory decompositions of frozen results.')
+                                'The map and exposure panels describe the observed records and selected compounds.')
 (figures / 'figure_catalog.json').write_text(json.dumps(catalog, indent=2), encoding='utf-8')
 print(json.dumps(catalog, indent=2))

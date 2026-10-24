@@ -104,6 +104,6 @@ for stem, sources, claim in [
         'claim': claim, 'script': 'analysis/plot_revision.py',
         'exports': [f'figures/{stem}.{ext}' for ext in ['png', 'pdf', 'svg']],
         'source_sha256': {name: hashlib.sha256((revision / name).read_bytes()).hexdigest() for name in sources},
-        'interpretation': 'Fixed finite-pool identification bounds, not confidence intervals. Representative selection is post-review exploratory.'}
+        'interpretation': 'Fixed finite-pool identification bounds, not confidence intervals. The selected pairs illustrate different interval widths.'}
 catalog_path.write_text(json.dumps(catalog, indent=2), encoding='utf-8')
 print('Exported current Figure S1 and Figure S4 as PNG, PDF and SVG.')

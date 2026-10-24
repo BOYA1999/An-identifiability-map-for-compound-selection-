@@ -38,14 +38,14 @@ def matches(actual, expected, tolerance):
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Reproduce analyses and figures from frozen policy records.')
+    parser = argparse.ArgumentParser(description="Reproduce the study's analyses and figures from saved scores and selections.")
     parser.add_argument('--workdir', type=Path, default=Path('work'), help='New directory for inputs and outputs')
-    parser.add_argument('--inputs', type=Path, help='Use a local frozen_inputs.zip instead of downloading it')
+    parser.add_argument('--inputs', type=Path, help='Use a local input archive instead of downloading it')
     args = parser.parse_args()
     sources = json.loads((ROOT / 'data_sources.json').read_text(encoding='utf-8'))
     expected = json.loads((ROOT / 'expected_results.json').read_text(encoding='utf-8'))
     if args.inputs is None and not sources['frozen_inputs']['url']:
-        parser.error('Frozen inputs have no public URL yet; provide --inputs /path/to/frozen_inputs.zip.')
+        parser.error('No input download URL is configured; supply a local archive with --inputs.')
     work = args.workdir.resolve()
     work.mkdir(parents=True, exist_ok=False)
     for folder in ['scripts', 'reporting/analysis']:
@@ -58,15 +58,15 @@ def main():
     else:
         download(sources['frozen_inputs']['url'], archive, sources['frozen_inputs']['sha256'])
     if digest(archive) != sources['frozen_inputs']['sha256']:
-        raise ValueError('Frozen input archive checksum mismatch')
+        raise ValueError('Input archive checksum mismatch')
     with zipfile.ZipFile(archive) as package:
         allowed = {entry['path'] for entry in sources['frozen_inputs']['files']} | {'README.txt'}
         if set(package.namelist()) != allowed:
-            raise ValueError('Unexpected frozen input archive members')
+            raise ValueError('Unexpected files in the input archive')
         package.extractall(work)
     for entry in sources['frozen_inputs']['files']:
         if digest(work / entry['path']) != entry['sha256']:
-            raise ValueError(f'Frozen input checksum mismatch: {entry["path"]}')
+            raise ValueError(f'Input checksum mismatch: {entry["path"]}')
     for entry in sources['source_data']:
         download(entry['url'], work / entry['path'], entry['sha256'])
     commands = [
@@ -109,7 +109,7 @@ def main():
             passed = matches(actual, entry['content'], expected['json_comparison']['absolute_tolerance'])
         checks.append({'path': entry['path'], 'pass': passed})
     report = {'passed': sum(x['pass'] for x in checks), 'total': len(checks), 'checks': checks,
-              'scope': 'Deterministic reanalysis of frozen inputs; no training or new prediction.'}
+              'scope': 'Reanalysis of the supplied scores and selections; no model retraining or new predictions.'}
     (work / 'verification.json').write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8')
     print(json.dumps({'passed': report['passed'], 'total': report['total'], 'output': str(work)}))
     if report['passed'] != report['total']:

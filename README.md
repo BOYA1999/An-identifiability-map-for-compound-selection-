@@ -1,34 +1,36 @@
 # An identifiability map for compound selection
 
-Analysis code for **What a released ADMET dataset can decide about compound selection: an identifiability map**.
+Code for **What a released ADMET dataset can decide about compound selection: an identifiability map**.
 
-This repository reproduces the endpoint-profile maps, threshold sensitivity, identification distances, conditional coverage requirements, feasible greedy measurement frontier, sharpness witnesses, missingness analyses, paired-bound decomposition and figures from the study's frozen policy records. It uses the same scores and selections; it does not retrain the prediction models or generate new predictions.
+The analysis asks when incomplete ADMET measurements are sufficient to compare two sets of selected compounds. The scripts use the study's saved model scores and selections to reproduce the tables and figures.
 
 ## Run
 
-Use Python 3.12 and a new working directory:
+With Python 3.12 installed, run these commands from the repository directory:
 
 ```bash
 python -m pip install -r requirements.txt
 python reproduce.py
 ```
 
-The runner verifies input SHA-256 checksums, downloads the pinned original data, regenerates the analyses and figures, and checks 27 numerical outputs against the frozen reference. It writes results to `work/`, figures to `work/reporting/figures/`, and the verification result to `work/verification.json`. Existing working directories are not overwritten. To run again, choose a new directory with `--workdir another_run`.
+The script downloads the required data, checks the files, and runs the analyses. Results are saved in `work/`, figures in `work/reporting/figures/`, and the results of 27 output checks in `work/verification.json`.
 
-The comparison requires exact CSV bytes; JSON scientific values use an absolute tolerance of 1e-12. Generation timestamps and producer-script identity fields are excluded from the JSON comparison. Graphical appearance can vary with installed fonts; figure images are not compared byte for byte.
+Each run needs a new output directory. To run the analysis again, use `python reproduce.py --workdir another_run`.
 
-## Inputs and sources
+## Data
 
-- Original dataset: [OpenADMET–ExpansionRx, pinned release](https://huggingface.co/datasets/openadmet/openadmet-expansionrx-challenge-data/tree/6b898ccc43d10d25b230fb09e22a6e30c30022b5).
-- Frozen inputs: 13 CSV files containing the saved scores, selections, outcome records, membership mappings and baseline summaries required by the analysis. These author-generated records are not part of the original dataset. The runner automatically downloads the [frozen input archive](https://github.com/BOYA1999/An-identifiability-map-for-compound-selection-/releases/download/reproducibility-20261024-r1/frozen_inputs.zip). To use a previously downloaded copy, run `python reproduce.py --inputs /path/to/frozen_inputs.zip`.
-- Exact download addresses, archive contents and checksums are recorded in `data_sources.json`.
+- [OpenADMET–ExpansionRx](https://huggingface.co/datasets/openadmet/openadmet-expansionrx-challenge-data/tree/6b898ccc43d10d25b230fb09e22a6e30c30022b5): the dataset version used in the study.
+- [Analysis inputs](https://github.com/BOYA1999/An-identifiability-map-for-compound-selection-/releases/tag/reproducibility-20261024-r1): 13 CSV files with the scores, selections, outcome records, group assignments and summary tables prepared for this study.
+- `data_sources.json`: download addresses, file lists and checksums.
 
-The original dataset README declares CC BY 4.0. The repository's existing [MIT license](LICENSE) covers code; it does not replace the original data provider's terms or assign a new licence to separately supplied records.
+Both sources are downloaded automatically. To use an input archive you have already downloaded, run `python reproduce.py --inputs /path/to/inputs.zip`.
 
-## Code and outputs
+## Files
 
-`scripts/` contains the profile, measurement and permutation analyses plus the observation-scope plotting code. `reporting/analysis/` contains the paired decomposition and remaining figure code. `reproduce.py` prepares the inputs and runs these scripts in a separate directory. `expected_results.json` contains only the hashes and reference values needed to check the regenerated outputs.
+`scripts/` contains the endpoint-profile, measurement and permutation analyses. `reporting/analysis/` contains the paired comparisons and plotting code. `reproduce.py` runs the workflow, and `expected_results.json` provides the reference outputs used to check the results.
 
-The figure order follows the current Digital Discovery manuscript: Figure 1, observation scope; Figure 2, identifiability map; Figure 3, internal positive control and conditional measurement analyses; Figure 4, evidence gaps. Supplementary Figures S1–S4 are also regenerated. The `v5` and `v6` names inside the code identify the frozen analysis stages, not alternative manuscript versions.
+CSV outputs are checked by file checksum. Numerical values in JSON outputs are compared with an absolute tolerance of 1e-12; timestamps and script labels are omitted from this comparison. Figure appearance may vary with the fonts installed on your computer.
 
-The known-success difference and policy-exclusive unknown outcomes jointly determine identification. The 91.9% figure concerns a fixed-difference, unknown-as-failure route. The 217-measurement schedule is feasible for the 44 nonzero-difference comparisons when all resolved outcomes fail; it is not a proven minimum or an expected acquisition cost. Reproducing these calculations is not external scientific validation.
+## License
+
+The code is available under the [MIT license](LICENSE). The original OpenADMET–ExpansionRx dataset README states CC BY 4.0; please refer to the source for its data-use terms.

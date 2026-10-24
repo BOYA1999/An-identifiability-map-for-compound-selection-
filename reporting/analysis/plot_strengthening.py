@@ -109,7 +109,7 @@ catalog['figure_3_strengthening'] = {
              'schedule resolves all 44 nonzero-d later comparisons after 217 measurements, with every resolved record failing. '
              'For all 44 pairs, observed opposite-side coverage is below the threshold for the fixed-d failure route.',
     'script': 'analysis/plot_figure4_v6.py',
-    'interpretation': 'Exploratory description of frozen results. The greedy schedule is feasible, not a proven minimum or '
+    'interpretation': 'The greedy schedule is feasible, not a proven minimum or '
                       'expected cost. The coverage threshold is conditional on fixed observed d and opposite-side failures.'}
 catalog_path.write_text(json.dumps(catalog, indent=2), encoding='utf-8')
 print('figure 4 exported')

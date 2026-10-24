@@ -101,7 +101,7 @@ write_csv('paired_decomposition_primary_45.csv', primary)
 ordered = sorted(primary, key=lambda r: (r['exclusive_unknown_total'], r['policy_a'], r['policy_b']))
 representative = [dict(selection=label, width_rank=rank + 1, **ordered[rank]) for label, rank in [('Minimum width', 0), ('Median-ranked width', 22), ('Maximum width', 44)]]
 write_csv('representative_pairs.csv', representative)
-summary = dict(scope='Post-review exploratory decomposition and independent saved-result recomputation; no retraining or changed outcomes.',
+summary = dict(scope='Paired comparisons recomputed from the supplied scores, selections and outcome records.',
                n=len(records), complete_exact=sum(exact.values()), joint_decidable=len(records) - len(unknown),
                known_success=sum(x[0] for x in labels.values()), known_failure=sum(x == (0, 0) for x in labels.values()),
                joint_unknown=len(unknown), successes_with_valid_inequalities=sum(labels[i][0] and not exact[i] for i in labels),

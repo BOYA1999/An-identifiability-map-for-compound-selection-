@@ -1,6 +1,6 @@
-"""v6 strengthening analyses for the ExpansionRx identifiability paper.
+"""Development-cohort comparisons and measurement analyses.
 
-Adds, using only frozen data and the original released strings:
+Uses the study records and reported endpoint measurements to calculate:
   A. Endpoint-profile identifiability map in the independent internal development cohort
      (a positive control: does the same procedure ever identify comparisons?).
   B. Coverage requirement per comparison (how complete the opposite-side exclusive set must be).
