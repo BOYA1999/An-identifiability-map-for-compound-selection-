@@ -1,0 +1,2 @@
+# Saved-result replay (replay_saved.py, verify_package.py) uses the Python standard library only.
+# Python 3.12 is recommended.
