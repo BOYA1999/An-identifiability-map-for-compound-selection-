@@ -20,7 +20,7 @@ The comparison requires exact CSV bytes; JSON scientific values use an absolute 
 ## Inputs and sources
 
 - Original dataset: [OpenADMET–ExpansionRx, pinned release](https://huggingface.co/datasets/openadmet/openadmet-expansionrx-challenge-data/tree/6b898ccc43d10d25b230fb09e22a6e30c30022b5).
-- Frozen inputs: 13 CSV files containing the saved scores, selections, outcome records, membership mappings and baseline summaries required by the analysis. These author-generated records are not part of the original dataset. The runner automatically downloads the [frozen input archive](https://github.com/BOYA1999/An-identifiability-map-for-compound-selection-/releases/download/reproducibility-20261024/frozen_inputs.zip). To use a previously downloaded copy, run `python reproduce.py --inputs /path/to/frozen_inputs.zip`.
+- Frozen inputs: 13 CSV files containing the saved scores, selections, outcome records, membership mappings and baseline summaries required by the analysis. These author-generated records are not part of the original dataset. The runner automatically downloads the [frozen input archive](https://github.com/BOYA1999/An-identifiability-map-for-compound-selection-/releases/download/reproducibility-20261024-r1/frozen_inputs.zip). To use a previously downloaded copy, run `python reproduce.py --inputs /path/to/frozen_inputs.zip`.
 - Exact download addresses, archive contents and checksums are recorded in `data_sources.json`.
 
 The original dataset README declares CC BY 4.0. The repository's existing [MIT license](LICENSE) covers code; it does not replace the original data provider's terms or assign a new licence to separately supplied records.

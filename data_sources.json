@@ -1,7 +1,7 @@
 {
   "frozen_inputs": {
-    "url": "https://github.com/BOYA1999/An-identifiability-map-for-compound-selection-/releases/download/reproducibility-20261024/frozen_inputs.zip",
-    "sha256": "9494b442f77af522e0de1fb7f5215ba89652dc541011138eb4c478a188f94419",
+    "url": "https://github.com/BOYA1999/An-identifiability-map-for-compound-selection-/releases/download/reproducibility-20261024-r1/frozen_inputs.zip",
+    "sha256": "70d44f1d7eecfd59869cfeb84f2690ef2c2f1b534bd87ac30614ee5898e154bf",
     "files": [
       {
         "path": "artifacts/expansionrx_later_fixed_scores_v2/policy_scores.csv",
