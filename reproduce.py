@@ -19,8 +19,15 @@ def digest(path):
 def download(url, path, sha256):
     path.parent.mkdir(parents=True, exist_ok=True)
     request = urllib.request.Request(url, headers={'User-Agent': 'ADMET-identifiability-reproduction'})
-    with urllib.request.urlopen(request, timeout=120) as response, path.open('wb') as stream:
-        shutil.copyfileobj(response, stream)
+    try:
+        with urllib.request.urlopen(request, timeout=120) as response, path.open('wb') as stream:
+            shutil.copyfileobj(response, stream)
+    except OSError:
+        curl = shutil.which('curl')
+        if not curl:
+            raise
+        subprocess.run([curl, '--location', '--fail', '--silent', '--show-error', '--retry', '2',
+                        '--max-time', '120', '--output', str(path), url], check=True)
     if digest(path) != sha256:
         raise ValueError(f'Input checksum mismatch: {path.name}')
 
@@ -37,10 +44,29 @@ def matches(actual, expected, tolerance):
     return type(actual) is type(expected) and actual == expected
 
 
+def verify_depth(work, expected_file):
+    import csv
+    expected = json.loads(expected_file.read_text(encoding='utf-8'))
+    checks = []
+    for name, reference in expected.items():
+        with (work / 'analysis_depth' / name).open(encoding='utf-8-sig', newline='') as f:
+            actual = [[row[c] for c in reference['columns']] for row in csv.DictReader(f)]
+        canonical = json.dumps(actual, ensure_ascii=False, separators=(',', ':')).encode('utf-8')
+        passed = len(actual) == reference['count'] and hashlib.sha256(canonical).hexdigest() == reference['sha256']
+        checks.append({'path': name, 'rows': reference['count'], 'pass': passed})
+    report = {'passed': sum(x['pass'] for x in checks), 'total': len(checks), 'checks': checks,
+              'comparison': 'Exact checksum of selected CSV fields and rows in the documented runtime.'}
+    (work / 'analysis_depth' / 'verification.json').write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8')
+    print(json.dumps(report), flush=True)
+    if report['passed'] != report['total']:
+        raise SystemExit('Additional analysis verification failed; see analysis_depth/verification.json')
+
+
 def main():
     parser = argparse.ArgumentParser(description="Reproduce the study's analyses and figures from saved scores and selections.")
     parser.add_argument('--workdir', type=Path, default=Path('work'), help='New directory for inputs and outputs')
     parser.add_argument('--inputs', type=Path, help='Use a local input archive instead of downloading it')
+    parser.add_argument('--source-dir', type=Path, help='Directory containing the two source CSV files; use instead of downloading')
     args = parser.parse_args()
     sources = json.loads((ROOT / 'data_sources.json').read_text(encoding='utf-8'))
     expected = json.loads((ROOT / 'expected_results.json').read_text(encoding='utf-8'))
@@ -48,7 +74,7 @@ def main():
         parser.error('No input download URL is configured; supply a local archive with --inputs.')
     work = args.workdir.resolve()
     work.mkdir(parents=True, exist_ok=False)
-    for folder in ['scripts', 'reporting/analysis']:
+    for folder in ['scripts', 'reporting/analysis', 'depth']:
         shutil.copytree(ROOT / folder, work / folder)
     for folder in ['reporting/tables', 'reporting/figures', 'logs']:
         (work / folder).mkdir(parents=True, exist_ok=True)
@@ -68,7 +94,14 @@ def main():
         if digest(work / entry['path']) != entry['sha256']:
             raise ValueError(f'Input checksum mismatch: {entry["path"]}')
     for entry in sources['source_data']:
-        download(entry['url'], work / entry['path'], entry['sha256'])
+        destination = work / entry['path']
+        if args.source_dir:
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(args.source_dir / destination.name, destination)
+            if digest(destination) != entry['sha256']:
+                raise ValueError(f'Source data checksum mismatch: {destination.name}')
+        else:
+            download(entry['url'], destination, entry['sha256'])
     commands = [
         'scripts/analyze_expansionrx_v5_identifiability_lead_v1.py',
         'scripts/analyze_expansionrx_v6_strengthening_v1.py',
@@ -114,6 +147,14 @@ def main():
     print(json.dumps({'passed': report['passed'], 'total': report['total'], 'output': str(work)}))
     if report['passed'] != report['total']:
         raise SystemExit('Reference-output verification failed; see verification.json')
+    for script in ['depth/decision.py', 'depth/composition.py', 'depth/measurement_replay.py', 'depth/plot_decision.py']:
+        log = work / 'logs' / (Path(script).stem + '.log')
+        with log.open('wb') as stream:
+            result = subprocess.run([sys.executable, '-B', '-X', 'utf8', script], cwd=work, stdout=stream, stderr=subprocess.STDOUT)
+        if result.returncode:
+            raise RuntimeError(f'{script} failed; see {log}')
+        print(f'Completed {script}', flush=True)
+    verify_depth(work, ROOT / 'depth_expected.json')
 
 
 if __name__ == '__main__':

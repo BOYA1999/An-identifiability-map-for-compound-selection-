@@ -1,0 +1,120 @@
+{
+  "decision/possible_optimal.csv": {
+    "columns": [
+      "fraction",
+      "k",
+      "policy",
+      "strict",
+      "feasible"
+    ],
+    "count": 60,
+    "sha256": "11106c60f8c8929c6056fdb1b632fdaaf2f630375d245bf69e47bbec112579c5"
+  },
+  "decision/max_regret.csv": {
+    "columns": [
+      "fraction",
+      "k",
+      "policy",
+      "max_regret_count"
+    ],
+    "count": 30,
+    "sha256": "15b84b3b1ca0510050fd24fae02c0db9acccfb04dd3e2d0e3ac6a00ae7da5093"
+  },
+  "decision/pair_check.csv": {
+    "columns": [
+      "fraction",
+      "a",
+      "b",
+      "L",
+      "U",
+      "saved_match"
+    ],
+    "count": 135,
+    "sha256": "797da3c9f7141292f0a81f29c16ca0f95aa18c72d108b81a7665fc90b576f6a2"
+  },
+  "mechanism/union_summary.csv": {
+    "columns": [
+      "fraction",
+      "selected",
+      "n",
+      "hlm_missing",
+      "joint_unknown",
+      "both_pass",
+      "both_pass_hlm_missing",
+      "common_n",
+      "standardized_hlm_missing"
+    ],
+    "count": 6,
+    "sha256": "35ecf17ad5a5aa318b81c3c36041552434672302347785e9e2abb03ba8ed371b"
+  },
+  "mechanism/policy_standardization.csv": {
+    "columns": [
+      "fraction",
+      "policy",
+      "n_selected",
+      "raw_selected",
+      "raw_not_selected",
+      "common_n",
+      "common_selected",
+      "common_not_selected",
+      "standardized_selected",
+      "standardized_not_selected",
+      "standardized_difference",
+      "common_strata"
+    ],
+    "count": 30,
+    "sha256": "60f9646f4a479beb992fd493f5cf1a504ea6357b630f492c4205018d77f6f445"
+  },
+  "mechanism/width_decomposition.csv": {
+    "columns": [
+      "fraction",
+      "policy_a",
+      "policy_b",
+      "k",
+      "overlap",
+      "exclusive_count",
+      "known_success_difference",
+      "unknown_exclusive_count",
+      "pool_unknown_rate",
+      "exclusive_unknown_rate",
+      "enrichment",
+      "width_fraction",
+      "lower_pp",
+      "upper_pp"
+    ],
+    "count": 135,
+    "sha256": "b21a57b9a80d100fd46d576b9e742e2cc0098a45e4af8da6a5a75ca763be37bc"
+  },
+  "replay/summary.csv": {
+    "columns": [
+      "strategy",
+      "budget_requested",
+      "n",
+      "candidate_min",
+      "candidate_max",
+      "budget_min",
+      "identified_mean",
+      "identified_median",
+      "width_sum_mean",
+      "regret_mean",
+      "reveal_success_mean"
+    ],
+    "count": 15,
+    "sha256": "f7e8588c869a1c263a160c2ba8cdb6ca27005291f61b488b92b1e1d3243c11a7"
+  },
+  "replay/replicates.csv": {
+    "columns": [
+      "replicate",
+      "strategy",
+      "budget_requested",
+      "budget_actual",
+      "candidate_count",
+      "identified",
+      "width_sum_counts",
+      "minimax_regret_count",
+      "revealed_successes"
+    ],
+    "count": 3000,
+    "sha256": "3ba5c5f19460f1d0d546d6df6196a3e2edca99f30dbf33dd6569963cdc86399c"
+  }
+}
